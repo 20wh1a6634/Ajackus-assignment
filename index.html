@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    button {
+      padding: 8px 12px;
+      margin: 2px;
+      cursor: pointer;
+    }
+    .form-container {
+      margin-top: 20px;
+    }
+    .form-container input {
+      display: block;
+      margin: 10px 0;
+      padding: 8px;
+      width: 300px;
+    }
+    .error-message {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>User Management</h1>
+  <div>
+    <button onclick="showAddUserForm()">Add User</button>
+  </div>
+  <table id="userTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <div class="form-container" id="userFormContainer">
+    <h3 id="formTitle">Add User</h3>
+    <form id="userForm" onsubmit="handleSubmit(event)">
+      <input type="hidden" id="userId" />
+      <input type="text" id="firstName" placeholder="First Name" required />
+      <input type="text" id="lastName" placeholder="Last Name" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="text" id="department" placeholder="Department" required />
+      <button type="submit">Save</button>
+      <button type="button" onclick="hideForm()">Cancel</button>
+    </form>
+    <p class="error-message" id="errorMessage"></p>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
